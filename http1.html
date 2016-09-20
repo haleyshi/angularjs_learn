@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Controller</title>
+    <script src="inc/angular.min.js"></script>
+    <script src="js/http1.js"></script>
+  </head>
+  <body ng-app="MainApp" ng-controller="MainController">
+    <h1>{{message}}</h1>
+    <div>
+      <div>
+        {{error}}
+      </div>
+      <div>
+        <a href="{{user.html_url}}" title="{{user.login}}">Homepage</a>
+      </div>
+      <div>
+        Name: {{user.name}}
+      </div>
+      <div>
+        Location: {{user.location}}
+      </div>
+      <div>
+        <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+      </div>
+    </div>
+  </body>
+</html>
