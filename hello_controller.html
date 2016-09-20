@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Controller</title>
+    <script src="inc/angular.min.js"></script>
+    <script src="js/script2.js"></script>
+  </head>
+  <body ng-app="MainApp" ng-controller="MainController">
+    <h1>{{message}}</h1>
+    <div>
+      <div>
+        Name: {{person.lastName}}, {{person.firstName}}
+      </div>
+      <div>
+        <img ng-src="{{person.imageSrc}}" title="{{person.firstName}} {{person.lastName}}" />
+      </div>
+    </div>
+  </body>
+</html>
