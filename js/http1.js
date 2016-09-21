@@ -1,5 +1,6 @@
-var app = angular.module('MainApp', []);
-app.controller('MainController', function($scope, $http) {
+var githubviewer = angular.module('githubviewer', []);
+
+var usercontroller = function($scope, $http) {
   var onUserComplete = function(response) {
     $scope.user = response.data;
   };
@@ -10,5 +11,8 @@ app.controller('MainController', function($scope, $http) {
 
   $http.get("https://api.github.com/users/haleyshi").then(onUserComplete, onError);
 
-  $scope.message = "Big Boss";
-});
+  $scope.message = "Big Boss!!!";
+};
+
+githubviewer.controller('usercontroller', usercontroller);
+//githubviewer.controller('usercontroller', ["$scope", "$http", usercontroller]);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Github User Viewer</title>
+  <script src="inc/angular.min.js"></script>
+  <script src="js/filter1.js"></script>
+</head>
+
+<body ng-app="githubviewer" ng-controller="usercontroller">
+  <h1>{{message}}</h1>
+
+  <div>{{error}}</div>
+
+  <form name="searchUser" ng-submit="search()">
+    <input type="search" required placeholder="Username to find" ng-model="username" />
+    <input type="button" value="Search" ng-click="search()" />
+    <!--<input type="submit" value="Search" ng-click="search()" />-->
+  </form>
+
+  <div>
+    <a href="{{user.html_url}}" title="{{user.login}}">Homepage</a>
+  </div>
+  <div>Name: {{user.name}}</div>
+  <div>Location: {{user.location}}</div>
+  <div>
+    <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+  </div>
+
+  Order:
+  <select ng-model="repoSortOrder">
+      <option value="+name">Name +</option>
+      <option value="+stargazers_count">Stars +</option>
+      <option value="-stargazers_count">Stars -</option>
+      <option value="+language">Laguage +</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Stars</th>
+        <th>Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+        <td>{{repo.name}}</td>
+        <td>{{repo.stargazers_count | number}}</td>
+        <td>{{repo.language}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
